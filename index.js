@@ -1,8 +1,9 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
-const markdown = require('./utils/generateMarkdown.js')
+const util = require('util');
+const markdown = require('./utils/generateMarkdown.js');
 
-const writeFileAsync = markdown.promisify(fs.writeFile);
+const writeFileAsync = util.promisify(fs.writeFile);
 
 const promptUser = () => {
     return inquirer.prompt([
@@ -64,37 +65,38 @@ const promptUser = () => {
     ]);
 };
 
-promptUser()
-    .then((answers) => writeFileAsync('readme.md', generateMarkdown(answers)))
-    .then(() => console.log('Successfully wrote to index.html'))
-    .catch((err) => console.error(err));
+// promptUser()
+//     .then((answers) => writeFileAsync('demo/README-demo.md', generateMarkdown(answers)))
+//     .then(() => console.log('Successfully wrote to index.html'))
+//     .catch((err) => console.error(err));
 
 
-writeFileAsync();
+// writeFileAsync();
 
 // // function to write README file
-function writeToFile("readme.md", data) {
-    const readme = generateMarkdown(answers);
-    await writeFileAsync()
-}
-
-init();
-// // Bonus using async/await and try/catch
-// const init = async () => {
-//     console.log('hi');
-//     try {
-//         const answers = await promptUser();
-
-//         const html = generateHTML(answers);
-
-//         await writeFileAsync('index.html', html);
-
-//         console.log('Successfully wrote to index.html');
-//     } catch (err) {
-//         console.log(err);
-//     }
+// function writeToFile('readme.md', data, err) {
+//     const readme = generateMarkdown(answers);
+//     await writeFileAsync()
 // };
 
+
+// // Bonus using async/await and try/catch
+const init = async () => {
+    console.log('test');
+    try {
+        const answers = await promptUser();
+
+        const mdFile = generateMarkdown(answers);
+
+        await writeFileAsync('./demo/README-demo', mdFile);
+
+        console.log('Successfully wrote to ReadMe');
+    } catch (err) {
+        console.log(err);
+    }
+};
+
+init();
 
 
 
