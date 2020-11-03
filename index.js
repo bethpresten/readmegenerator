@@ -1,7 +1,7 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
 const util = require('util');
-const generateMarkdown = require('./utils/generateMarkdown.js');
+const generateMarkdown = require('./utils/generateMarkdown');
 
 const writeFileAsync = util.promisify(fs.writeFile);
 
@@ -44,11 +44,6 @@ const promptUser = () => {
         },
         {
             type: 'input',
-            name: 'badges',
-            message: 'Input any badges.',
-        },
-        {
-            type: 'input',
             name: 'testInstructions',
             message: 'Are there specific test instructions (if no, press enter)?',
         },
@@ -58,37 +53,38 @@ const promptUser = () => {
             message: 'Who are the contributors on this project?',
         },
         {
-            type: 'input',
+            type: 'list',
             name: 'license',
             message: 'What is the license name?',
-        }
-    ]);
+            choices: ["MIT", "Mozilla Public License", "GPL", "Apache License"]
+        },
+        {
+            type: 'input',
+            name: 'email',
+            message: 'What is your email address?',
+        },
+    ])
+    // .then(function (data) {
+    //     const readMeFile = "/demo/README-demo.md";
+    //     console.log(data);
+    //     writeReadMe(readMeFile, data);
+    // })
 };
 
-// promptUser()
-//     .then((answers) => writeFileAsync('demo/README-demo.md', generateMarkdown(answers)))
-//     .then(() => console.log('Successfully wrote to index.html'))
-//     .catch((err) => console.error(err));
-
-
-// writeFileAsync();
-
-// // function to write README file
-// function writeToFile('readme.md', data, err) {
-//     const readme = generateMarkdown(answers);
-//     await writeFileAsync()
-// };
-
-
-// // Bonus using async/await and try/catch
+// function writeReadMe(readMeFile, data) {
+//     fs.writeFile(writeReadMe, generateMarkdown(data), null, function (err) {
+//         if (err) {
+//             return console.log(err);
+//         } console.log("Wrote new ReadMe!")
+//     });
+// }
 const init = async () => {
-    console.log('test');
     try {
         const answers = await promptUser();
 
         const mdFile = generateMarkdown(answers);
 
-        await writeFileAsync('./demo/README-demo', mdFile);
+        await writeFileAsync('./demo/README-demo.md', mdFile);
 
         console.log('Successfully wrote to ReadMe');
     } catch (err) {
@@ -96,15 +92,17 @@ const init = async () => {
     }
 };
 
+// promptUser()
+// const init = async () => {
+//     const answers = await promptUser()
+//     const mdFile = generateMarkdown(answers)
+//         .then(() => writeFileAsync('./demo/README-demo.md', mdFile))
+//         .then((answers) => console.log(answers))
+//         .catch((err) => console.log(err));
+//     init();
+// };
+
 init();
+//
 
-
-
-
-
-
-// // function to initialize program
-// function init() {
-
-// }
 
