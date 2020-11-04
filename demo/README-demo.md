@@ -1,4 +1,4 @@
-### data
+### ReadMe Generator
 
   Table of Contents
   * [Description](#description)
@@ -13,32 +13,32 @@
   * [Questions](#questions)
   
   ### Description
-  work
+  This platform is for users who need to create a README Generator for their code. It's a user-friendly interface that utilizes Node from the command line in their terminal.
 
   ### Github Repository
-  will
+  https://github.com/bethpresten/readmegenerator
 
   ### Github Site
-  this
+  
 
   ### Author
-  time
+  Beth Presten
 
   ### Installation
 
-  i believe
+  The code can be found on the following site: https://bethpresten.github.io/readmegenerator/
 
   ### Usage
 
-  it
+  The application was completed by Beth Presten. Contributors include Peter Collela, TA for clarifying questions and my classmates.
 
   ### Test Instructions
 
-  will
+  
 
   ### Contributors
 
-  work
+  The application was completed by Beth Presten. Contributors include Peter Collela, TA for clarifying questions and my classmates.
 
   ### License
 
@@ -46,4 +46,4 @@
 
   ### Questions
 
-  For additional questions, reach me at now!
+  For additional questions, reach me at bethpresten@gmail.com

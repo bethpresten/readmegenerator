@@ -13,40 +13,54 @@ function generateMarkdown(data) {
   * [Usage](#usage)
   * [Test Instructions](#testInstructions)
   * [Contributors](#contributors)
-  * [License](#licenses)
+  * [License](#license)
   * [Questions](#questions)
   
+  
   ### Description
+  
   ${data.description}
 
+
   ### Github Repository
+
   ${data.githubRepo}
 
+
   ### Github Site
+
   ${data.homepage}
 
+
   ### Author
+
   ${data.author}
+
 
   ### Installation
 
   ${data.installation}
 
+
   ### Usage
 
   ${data.usage}
+
 
   ### Test Instructions
 
   ${data.testInstructions}
 
+
   ### Contributors
 
   ${data.contributors}
 
+
   ### License
 
   ![badge](https://img.shields.io/badge/${encodeURI(data.license)}-License-<color>)
+
 
   ### Questions
 
