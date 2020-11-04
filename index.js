@@ -1,9 +1,10 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
-const util = require('util');
+// const util = require('util');
 const generateMarkdown = require('./utils/generateMarkdown');
+const markDown = "demo/README-demo.md";
 
-const writeFileAsync = util.promisify(fs.writeFile);
+// const writeFileAsync = util.promisify(fs.writeFile);
 
 const promptUser = () => {
     return inquirer.prompt([
@@ -64,12 +65,33 @@ const promptUser = () => {
             message: 'What is your email address?',
         },
     ])
+
+        .then(function (data) {
+            // const markDown = "demo/README-demo.md";
+            console.log(data);
+            writeMarkdown(markDown, data)
+        });
+};
+
+function writeMarkdown(markDown, data) {
+    // const markDown = "demo/README-demo.md";
+    fs.writeFile(markDown, generateMarkdown(data), null, function (err) {
+        if (err) {
+            return console.log(err);
+        }
+        console.log("Successfully wrote README!")
+    });
+};
+
+promptUser();
+
+
     // .then(function (data) {
     //     const readMeFile = "/demo/README-demo.md";
     //     console.log(data);
     //     writeReadMe(readMeFile, data);
     // })
-};
+// };
 
 // function writeReadMe(readMeFile, data) {
 //     fs.writeFile(writeReadMe, generateMarkdown(data), null, function (err) {
@@ -78,19 +100,19 @@ const promptUser = () => {
 //         } console.log("Wrote new ReadMe!")
 //     });
 // }
-const init = async () => {
-    try {
-        const answers = await promptUser();
+// const init = async () => {
+//     try {
+//         const answers = await promptUser();
 
-        const mdFile = generateMarkdown(answers);
+//         const mdFile = generateMarkdown(answers);
 
-        await writeFileAsync('./demo/README-demo.md', mdFile);
+//         await writeFileAsync('./demo/README-demo.md', mdFile);
 
-        console.log('Successfully wrote to ReadMe');
-    } catch (err) {
-        console.log(err);
-    }
-};
+//         console.log('Successfully wrote to ReadMe');
+//     } catch (err) {
+//         console.log(err);
+//     }
+// };
 
 // promptUser()
 // const init = async () => {
@@ -102,7 +124,7 @@ const init = async () => {
 //     init();
 // };
 
-init();
+// init();
 //
 
 
