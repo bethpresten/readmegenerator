@@ -3,6 +3,7 @@
 // writing the readme using template literals and pulling in the data from the index.js
 function generateMarkdown(data) {
   return `### ${data.title}
+  ![badge](https://img.shields.io/badge/${encodeURI(data.license)}-License-<color>)
 
   Table of Contents
   * [Description](#description)
@@ -60,6 +61,7 @@ function generateMarkdown(data) {
   ### License
 
   ![badge](https://img.shields.io/badge/${encodeURI(data.license)}-License-<color>)
+  ${data.license}
 
 
   ### Questions
