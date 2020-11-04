@@ -37,6 +37,7 @@ https://bethpresten.github.io/readmegenerator/
 ### Usage
 
 ![readme-gif](assets/readme-generator.gif)
+![readmedemo](assets/ReadMe-Generator.gif)
 
 The code uses inquirer, fs, index.js, and node.js. The user runs Node from their command line using the command "node index.js" when in their designated folder. The code should be copied from my github pages in the above link.
 
