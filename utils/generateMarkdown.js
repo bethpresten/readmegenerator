@@ -1,4 +1,6 @@
 // function to generate markdown for README
+
+// writing the readme using template literals and pulling in the data from the index.js
 function generateMarkdown(data) {
   return `### ${data.title}
 

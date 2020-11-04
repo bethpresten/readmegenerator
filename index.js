@@ -1,11 +1,14 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
 // const util = require('util');
+// pulling the markdown file into this main js file
 const generateMarkdown = require('./utils/generateMarkdown');
+// creation of the markdown file 
 const markDown = "demo/README-demo.md";
 
 // const writeFileAsync = util.promisify(fs.writeFile);
 
+// question creation with a function identified as promptUser
 const promptUser = () => {
     return inquirer.prompt([
         {
@@ -73,6 +76,7 @@ const promptUser = () => {
         });
 };
 
+// function writing the data to the readme file
 function writeMarkdown(markDown, data) {
     // const markDown = "demo/README-demo.md";
     fs.writeFile(markDown, generateMarkdown(data), null, function (err) {
@@ -83,8 +87,11 @@ function writeMarkdown(markDown, data) {
     });
 };
 
+// prompting the user with the questions for readme after running node.js
 promptUser();
 
+
+// my previous attempts that failed writing this application
 
     // .then(function (data) {
     //     const readMeFile = "/demo/README-demo.md";
@@ -100,6 +107,8 @@ promptUser();
 //         } console.log("Wrote new ReadMe!")
 //     });
 // }
+
+// this attempt worked, but it was too similar to the solved folder/I was challenged to do a .then statement
 // const init = async () => {
 //     try {
 //         const answers = await promptUser();
